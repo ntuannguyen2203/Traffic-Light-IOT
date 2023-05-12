@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>TRAFFIC LIGHT CONTROL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<style>
+        body{ font: 14px sans-serif; }
+        .wrapper{ float: left; width: 30%; padding: 20px; margin: 20px; height: 480px; }
+		.box{ margin: auto; width: 60%; height: 50%;}
+		.table_size{margin: auto; width: 70%;}
+        body {
+			background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/02/65/88/135788e18a62b79.jpg");
+			background-size: 1880px 980px;
+			background-repeat: no-repeat;
+		}
+        #tan {
+            position: absolute;
+            top: 120px;
+            left: 750px;
+            color: rgb(15, 211, 245);
+          }
+          #nguyen {
+            position: absolute;
+            top: 150px;
+            left: 723px;
+            color: rgb(15, 211, 245);
+          }
+        #text1 {
+            position: absolute;
+            top: 50px;
+            left: 370px;
+            color: rgb(63, 38, 95);
+          }
+        #text2 {
+            position: absolute;
+            top: 320px;
+            left: 240px;
+            color: rgb(37, 86, 124);
+          }
+          #text3 {
+            position: absolute;
+            top: 170px;
+            left: 240px;
+            color: rgb(37, 86, 124);
+          }
+        #station {
+            position: absolute;
+            top: 230px;
+            left: 240px;
+            color: rgb(37, 86, 124);
+          }
+          #station1 {
+            position: absolute;
+            top: 250px;
+            left: 700px;
+            color: rgb(37, 86, 124);
+          }
+          #station2 {
+            position: absolute;
+            top: 250px;
+            left: 1250px;
+            color: rgb(37, 86, 124);
+          }
+          #rtime {
+            position: absolute;
+            top: 390px;
+            left: 240px;
+            color: rgb(37, 86, 124);
+          }
+          #ytime {
+            position: absolute;
+            top: 450px;
+            left: 240px;
+            color: rgb(37, 86, 124);
+          }
+          #gtime {
+            position: absolute;
+            top: 510px;
+            left: 240px;
+            color: rgb(37, 86, 124);
+          }
+          #submit {
+            position: absolute;
+            top: 560px;
+            left: 240px;
+        
+          }
+          #colorbox {
+            position: absolute;
+            top: 350px;
+            left: 820px;
+        
+          }
+          #colorbox2 {
+            position: absolute;
+            top: 350px;
+            left: 1385px;
+        
+          }
+          #time11 {
+            position: absolute;
+            top: 520px;
+            left: 825px;
+            width: 100px;
+            height: 65px;
+            border: 1px solid black;
+            text-decoration-color: antiquewhite;
+            background-color: cornflowerblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+        
+          }
+          #time22 {
+            position: absolute;
+            top: 520px;
+            left: 1390px;
+            width: 100px;
+            height: 65px;
+            border: 1px solid black;
+            text-decoration-color: antiquewhite;
+            background-color: cornflowerblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+        
+          }
+          h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 60px;
+            font-weight: bold;
+          }
+          h2 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 25px;
+            font-weight: bold;
+          }
+          h7 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 30px;
+            font-weight: bold;
+          }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" >   </script>
+</head>
+<body>
+    <div>
+        <h1 id="text1">TRAFFIC LIGHT CONTROL STATION</h1>
+        <h2 id="text2">CHOSE STATION:</h2>
+        <h7 id="tan">Nguyễn Minh Tấn - 20146417</h7>
+        <h7 id="nguyen">Nguyễn Tuấn Nguyễn - 20146376</h7>
+        <br>
+        <h2 id="text3">CHOSE TIME:</h2>
+        <form id="ctltime_form">
+            
+            <select name="station" id="station" class="fw-bold" style="width: 190px; height: 40px; font-size: 16px;">
+                <option value="1" >THE FIRST STATION</option>
+                <option value="2" >THE SECOND STATION</option>
+        
+            </select>
+            <div class="mb-3">
+                <br/>
+                <input type="number" id="rtime" name="t_r" placeholder="Enter time for red light">
+                <br>
+                
+                <input type="number" id="ytime" name="t_y" placeholder="Enter time for yellow light">
+                <br>
+                
+                <input type="number" id="gtime" name="t_g" placeholder="Enter time for green light">
+                <br>
+
+            </div>
+            <div class="mb-3">
+                <input type="submit" id="submit" class="btn btn-danger" value="Submit">
+            </div>
+        </form>
+    </div>  
+	<div >
+        <h2 id="station1">THE FIRST STATION STATE:</h2>
+        <br/> 
+        <div class="box" id="colorbox" style="background-color: rgb(255,255,0); width: 110px; height: 110px;border-radius: 50%;"> </div>
+        
+		<table class="table-danger">
+			<tbody>
+				<tr>
+					<td id="time11"></td>
+				</tr>
+			</tbody>
+		</table>
+        <br/>
+        <br/>
+        <h2 id="station2">THE SECOND STATION STATE:</h2>
+        <div class="box" id="colorbox2" style="background-color: rgb(0, 249, 95); width: 110px; height: 110px;border-radius: 50%;"> </div>
+
+    
+		<table class="table-danger">
+			<tbody>
+				<tr>
+					<td id="time22"></td>
+				</tr>
+			</tbody>
+		</table>	
+    </div> 
+    
+    <script>
+        $(document).ready(function(){
+            $(document).on('submit','#ctltime_form', function(){
+                $.post('write.php',$('#ctltime_form').serialize());
+                return false;
+            });
+        
+
+            updateState();
+        });
+
+        setInterval(updateState,1000); // repeat ham updateState moi 1s
+        function updateState(){
+            // gui http request xuong server
+            $.post("read.php",
+            function(data){
+                // doc gia tri tu server gui len
+                var t1 = data[0].time1;  // t1= time each led in station1
+                var t2 = data[0].time2; // t2= time each led in station2
+                var l1 = data[0].led1;  // l1= color each led in station1
+                var l2 = data[0].led2; // l2= color each led in station2
+
+                var Rcolor = 'rgb('+255+','+0+','+0+')';
+                console.log(Rcolor)
+
+                var Ycolor = 'rgb('+255+','+255+','+0+')';
+                console.log(Ycolor)
+
+                var Gcolor = 'rgb('+0+','+128+','+0+')';
+                console.log(Gcolor)
+                
+                if ((l1 == 1))
+                {
+                    document.getElementById("time11").innerHTML = t1;  
+                    document.getElementById("colorbox").style.backgroundColor = Rcolor; 
+                } 
+                else if ((l1 == 2))  
+                {
+                    document.getElementById("time11").innerHTML = t1;  
+                    document.getElementById("colorbox").style.backgroundColor = Ycolor;
+                }
+                else if ((l1 == 3))  
+                {
+                    document.getElementById("time11").innerHTML = t1;  
+                    document.getElementById("colorbox").style.backgroundColor = Gcolor;
+                }
+
+                if (l2 == 1)
+                {
+                    document.getElementById("time22").innerHTML = t2;  
+                    document.getElementById("colorbox2").style.backgroundColor = Rcolor; 
+                } 
+                else if ((l2 == 2))  
+                {
+                    document.getElementById("time22").innerHTML = t2;  
+                    document.getElementById("colorbox2").style.backgroundColor = Ycolor;
+                }
+                else if ((l2 == 3))  
+                {
+                    document.getElementById("time22").innerHTML = t2;  
+                    document.getElementById("colorbox2").style.backgroundColor = Gcolor;
+                }
+                
+                
+                // gan gia cho cac phan tu
+                //document.getElementById("time11").innerHTML = t1;
+                //document.getElementById("time22").innerHTML = t2;
+                //document.getElementById("colorbox").style.backgroundColor = Rcolor; 
+                //document.getElementById("colorbox2").style.backgroundColor = Gcolor; 
+            }); 
+        }   
+    </script>
+	
+</body>
+</html>
